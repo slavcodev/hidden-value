@@ -19,7 +19,7 @@ before_install:
 
 install:
   - composer self-update
-  - make istall
+  - make install
 
 script:
   # PHPUnit
