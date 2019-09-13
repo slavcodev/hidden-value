@@ -21,7 +21,7 @@ lint: psalm cs-test
 
 .PHONY: clean
 clean:
-	rm -dfR $(tmp-dir)
+	rm -dfR $(LOGS_DIR)
 
 .PHONY: build
 build:
