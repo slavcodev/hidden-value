@@ -22,8 +22,7 @@ install:
   - make install
 
 script:
-  # PHPUnit
-  - if [[ $EXECUTE_COVERAGE == 'true' ]]; then phpdbg -qrr make report-coverage ; fi
+  - if [[ $EXECUTE_COVERAGE == 'true' ]]; then make report-coverage ; fi
   - if [[ $EXECUTE_COVERAGE != 'true' ]]; then make test ; fi
   - make lint
 
