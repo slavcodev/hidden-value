@@ -1,8 +1,8 @@
 {
-  "name": "zeeproject/template",
-  "description": "Repository template for packages",
+  "name": "zeeproject/hidden-value",
+  "description": "Hidden ValueObject",
   "license": "BSD-2-Clause",
-  "homepage": "https://github.com/zee/php-package-template",
+  "homepage": "https://github.com/zee/hidden-value",
   "keywords": [],
   "authors": [
     {
@@ -12,21 +12,26 @@
     },
     {
       "name": "All awesome contributors",
-      "homepage": "https://github.com/zee/exceptions/graphs/contributors"
+      "homepage": "https://github.com/zee/hidden-value/graphs/contributors"
     }
   ],
   "config": {
     "sort-packages": true
   },
   "require": {
-    "php": "^7.3"
+    "php": "^7.3",
+    "ext-json": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8.3"
+    "friendsofphp/php-cs-fixer": "^2.15",
+    "phpunit/phpunit": "^8.3",
+    "psalm/plugin-phpunit": "^0.7.0",
+    "scrutinizer/ocular": "^1.6",
+    "vimeo/psalm": "^3.5"
   },
   "autoload": {
     "psr-4": {
-
+      "Zee\\HiddenValue\\": ["src"]
     }
   },
   "autoload-dev": {},

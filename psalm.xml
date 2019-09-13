@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<psalm
+    totallyTyped="false"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    allowPhpStormGenerics="true"
+    errorBaseline="psalm_baseline.xml"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <directory name="tests"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <LessSpecificReturnType/>
+
+        <!-- level 3 issues - slightly lazy code writing, but provably low false-negatives -->
+
+        <InternalMethod/>
+        <InternalProperty/>
+        <InternalClass/>
+
+        <MissingClosureReturnType/>
+        <MissingReturnType/>
+        <InvalidDocblock/>
+        <MisplacedRequiredParam/>
+
+        <PropertyNotSetInConstructor/>
+        <MissingConstructor/>
+        <MissingClosureParamType/>
+        <MissingParamType/>
+
+        <RedundantCondition/>
+
+        <DocblockTypeContradiction/>
+        <RedundantConditionGivenDocblockType/>
+
+        <UnresolvableInclude/>
+
+        <RawObjectIteration/>
+
+        <InvalidStringClass/>
+
+        <InvalidArgument/>
+        <UnusedVariable/>
+        <UnusedParam/>
+        <InvalidOperand/>
+        <MismatchingDocblockReturnType/>
+        <UndefinedGlobalVariable/>
+        <FalsableReturnStatement/>
+        <InvalidFalsableReturnType/>
+        <InvalidPropertyAssignmentValue/>
+        <UnusedFunctionCall/>
+        <PossiblyUnusedParam/>
+        <InvalidReturnStatement/>
+        <MismatchingDocblockParamType/>
+        <InvalidReturnType/>
+
+        <!-- No needed for library -->
+
+        <MissingPropertyType errorLevel="suppress"/>
+        <UnusedClass errorLevel="suppress"/>
+        <UnusedMethod errorLevel="suppress"/>
+        <DeprecatedMethod errorLevel="suppress"/>
+        <DeprecatedProperty errorLevel="suppress"/>
+        <DeprecatedClass errorLevel="suppress"/>
+        <DeprecatedConstant errorLevel="suppress"/>
+        <DeprecatedFunction errorLevel="suppress"/>
+        <DeprecatedInterface errorLevel="suppress"/>
+        <DeprecatedTrait errorLevel="suppress"/>
+    </issueHandlers>
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
+</psalm>

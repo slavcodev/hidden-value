@@ -8,23 +8,24 @@ matrix:
     - php: 7.3
       env:
         - EXECUTE_COVERAGE=true
-        - MEASURE_COVERAGE=true
+        - UPLOAD_COVERAGE=true
 
 notifications:
   email: false
 
 before_install:
   - phpenv config-rm xdebug.ini || return 0
-  - mkdir -p ./build/logs || return 0
+  - make build || return 0
 
 install:
   - composer self-update
-  - composer install --no-interaction --prefer-source
+  - make istall
 
 script:
   # PHPUnit
-  - if [[ $EXECUTE_COVERAGE == 'true' ]]; then phpdbg -qrr ./vendor/bin/phpunit --coverage-text --coverage-clover=./build/logs/clover.xml ; fi
-  - if [[ $EXECUTE_COVERAGE != 'true' ]]; then ./vendor/bin/phpunit ; fi
+  - if [[ $EXECUTE_COVERAGE == 'true' ]]; then phpdbg -qrr make report-coverage ; fi
+  - if [[ $EXECUTE_COVERAGE != 'true' ]]; then make test ; fi
+  - make lint
 
 after_script:
-  - if [[ MEASURE_COVERAGE == 'true' ]]; then ./vendor/bin/ocular code-coverage:upload --format=clover ./build/logs/clover.xml; fi
+  - if [[ UPLOAD_COVERAGE == 'true' ]]; then make upload-coverage ; fi
