@@ -1,4 +1,4 @@
-# Hidden ValueObject
+Hidden ValueObject
 
 [![Build Status][ico-travis]][link-travis]
 [![Code Coverage][ico-scrutinizer]][link-scrutinizer]
